@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     let buttonTrue = DNButton(title: "True")
     let buttonFalse = DNButton(title: "False")
     let questionText = DNLabel(contentText: "Question Text")
-    let progressBar = DNProgressBar(xScale: 1, yScale: 5, progress: 0.5)
+    let progressBar = DNProgressBar(xScale: 1, yScale: 5)
     let vStackView = UIStackView()
     
     var currentIndex: Int?
@@ -73,6 +73,7 @@ class ViewController: UIViewController {
         
         if "false" == QuestionsForQuiz.questions[currentIndex!].correctAnswer.lowercased() && !finished{
             Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(updateUILabel), userInfo: nil, repeats: false)
+            progressBar.progress = Float(counter) / Float(QuestionsForQuiz.questions.count)
             buttonTrue.backgroundColor = .white
             buttonFalse.backgroundColor = .white
         } else if finished {
@@ -94,6 +95,7 @@ class ViewController: UIViewController {
         buttonTrue.alpha = 1
         if "true" == QuestionsForQuiz.questions[currentIndex!].correctAnswer.lowercased() && !finished {
             Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(updateUILabel), userInfo: nil, repeats: false)
+            progressBar.progress = Float(counter) / Float(QuestionsForQuiz.questions.count)
             buttonTrue.backgroundColor = .white
             buttonFalse.backgroundColor = .white
         } else if finished {

@@ -13,9 +13,8 @@ class DNProgressBar: UIProgressView {
         super.init(frame: .zero)
     }
     
-    convenience init (xScale: CGFloat, yScale: CGFloat, progress: Float){
+    convenience init (xScale: CGFloat, yScale: CGFloat){
         self.init()
-        setProgress(progress, animated: true)
         trackTintColor = .white
         tintColor = .black
         transform = self.transform.scaledBy(x: xScale, y: yScale)
