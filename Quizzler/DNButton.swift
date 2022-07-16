@@ -18,7 +18,7 @@ class DNButton: UIButton {
         setTitle(title, for: .normal)
         backgroundColor = .white
         layer.cornerRadius = 16
-        titleLabel?.font = .boldSystemFont(ofSize: 30)
+        titleLabel?.font = .boldSystemFont(ofSize: 40)
         setTitleColor(.black, for: .normal)
         sizeToFit()
     }
